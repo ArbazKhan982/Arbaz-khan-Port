@@ -637,10 +637,14 @@
         .certifications {
             background: var(--bg-color);
             padding: 10rem 9% 5rem;
+            min-height: 100vh;
+            display: block;
         }
 
         .certifications h2 {
             margin-bottom: 5rem;
+            text-align: center;
+            font-size: 4.5rem;
         }
 
         .certifications-container {
@@ -659,6 +663,7 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            height: 100%;
         }
 
         .certification-card::before {
@@ -685,10 +690,9 @@
 
         .cert-image {
             width: 100%;
-            height: 100%;
-            min-height: 350px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 2rem;
+            border-radius: 2rem 2rem 0 0;
             transition: all 0.5s ease;
         }
 
@@ -697,18 +701,13 @@
         }
 
         .cert-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(31, 36, 45, 0.95), transparent);
             padding: 2rem;
-            transform: translateY(100%);
-            transition: 0.5s ease;
-        }
-
-        .certification-card:hover .cert-overlay {
-            transform: translateY(0);
+            background: var(--second-bg-color);
+            border-radius: 0 0 2rem 2rem;
+            height: calc(100% - 250px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .cert-overlay h3 {
@@ -956,7 +955,7 @@
             <a href="#skills">Skills</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#experience">Experience</a>
-            <a href="#certifications">Certifications</a>
+            <a href="#certifications">Certifications</a> <!-- Fixed this line -->
             <a href="#contact">Contact</a>
         </nav>
 
@@ -1161,71 +1160,52 @@
     </section>
 
     <!-- certifications section -->
-   <section style="padding:60px 20px; background:#161617;">
-    <h2 style="text-align:center; font-size:32px; margin-bottom:40px; color:#dfe1e7;">
-        Certifications
-    </h2>
-
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:30px; max-width:1100px; margin:auto;">
+    <section class="certifications" id="certifications">
+        <h2 class="heading">Certifications</h2>
         
-        <div style="background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
-            <img src="Images/PowerPages.jpg"
-                 alt="Power Pages"
-                 style="width:53%; height:205px; object-fit:cover; display:block;">
-
-            <div style="padding:16px;">
-                <h3 style="margin:0 0 6px; font-size:18px; color:#1e293b;">
-                    Power Pages
-                </h3>
-                <p style="margin:0; color:#2563eb; font-weight:600;">
-                    Microsoft
-                </p>
-                <span style="font-size:14px; color:#64748b;">
-                    2026
-                </span>
+        <div class="certifications-container">
+            <div class="certification-card">
+                <div class="cert-badge">
+                    <i class='bx bxs-badge-check'></i>
+                    <span>Verified</span>
+                </div>
+                <img src="Images/PowerPages.jpg" alt="Power Pages Certification" class="cert-image">
+                <div class="cert-overlay">
+                    <h3>Power Pages</h3>
+                    <p class="cert-issuer">Microsoft</p>
+                    <p class="cert-date">2026</p>
+                </div>
+            </div>
+            
+            <div class="certification-card">
+                <div class="cert-badge">
+                    <i class='bx bxs-badge-check'></i>
+                    <span>Verified</span>
+                </div>
+                <img src="Images/CopilotStudio.jpg" alt="Copilot Studio Certification" class="cert-image">
+                <div class="cert-overlay">
+                    <h3>Copilot Studio</h3>
+                    <p class="cert-issuer">Microsoft</p>
+                    <p class="cert-date">2026</p>
+                </div>
+            </div>
+            
+            <div class="certification-card">
+                <div class="cert-badge">
+                    <i class='bx bxs-badge-check'></i>
+                    <span>Verified</span>
+                </div>
+                <img src="Images/PowerAutomate.jpg" alt="Power Automate Certification" class="cert-image">
+                <div class="cert-overlay">
+                    <h3>Power Automate</h3>
+                    <p class="cert-issuer">Microsoft</p>
+                    <p class="cert-date">2026</p>
+                </div>
             </div>
         </div>
-<div style="background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
-            <img src="Images/CopilotStudio.jpg"
-                 alt="Copilot Studio"
-                 style="width:53%; height:205px; object-fit:cover; display:block;">
+    </section>
 
-            <div style="padding:16px;">
-                <h3 style="margin:0 0 6px; font-size:18px; color:#1e293b;">
-                    Copilot Studio
-                </h3>
-                <p style="margin:0; color:#2563eb; font-weight:600;">
-                    Microsoft
-                </p>
-                <span style="font-size:14px; color:#64748b;">
-                    2026
-                </span>
-            </div>
-        </div>
-        <div style="background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.08);">
-            <img src="Images/PowerAutomate.jpg"
-                 alt="Power Automate"
-                 style="width:53%; height:205px; object-fit:cover; display:block;">
-
-            <div style="padding:16px;">
-                <h3 style="margin:0 0 6px; font-size:18px; color:#1e293b;">
-                    Power Automate
-                </h3>
-                <p style="margin:0; color:#2563eb; font-weight:600;">
-                    Microsoft
-                </p>
-                <span style="font-size:14px; color:#64748b;">
-                    2026
-                </span>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-
-
-    <!-- contact section designnnnnn -->
+    <!-- contact section design -->
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
 
@@ -1331,6 +1311,7 @@
         ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
         ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
         ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+        ScrollReveal().reveal('.certifications-container', { origin: 'bottom' });
 
         // Certification cards animation on scroll
         const certCards = document.querySelectorAll('.certification-card');
