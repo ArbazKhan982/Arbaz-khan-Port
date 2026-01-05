@@ -592,6 +592,184 @@
             color: var(--second-bg-color);
         }
 
+        /* CRM Specific Styles */
+        .crm-icon {
+            font-size: 3rem;
+            margin-right: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .skill-tag {
+            background: rgba(108, 99, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 1.4rem;
+            border: 1px solid var(--main-color);
+        }
+
+        .experience-item {
+            background: var(--second-bg-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--main-color);
+        }
+
+        .experience-item h4 {
+            font-size: 2rem;
+            color: var(--main-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .duration {
+            color: #94a3b8;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Certifications Section Styles */
+        .certifications {
+            background: var(--bg-color);
+            padding: 10rem 9% 5rem;
+        }
+
+        .certifications h2 {
+            margin-bottom: 5rem;
+        }
+
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: stretch;
+        }
+
+        .certification-card {
+            background: var(--second-bg-color);
+            border-radius: 2rem;
+            padding: 0;
+            border: 2px solid transparent;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(14, 239, 255, 0.1), transparent);
+            transition: 0.5s;
+            z-index: 1;
+        }
+
+        .certification-card:hover::before {
+            left: 100%;
+        }
+
+        .certification-card:hover {
+            border-color: var(--main-color);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 40px rgba(14, 239, 255, 0.4);
+        }
+
+        .cert-image {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            object-fit: cover;
+            border-radius: 2rem;
+            transition: all 0.5s ease;
+        }
+
+        .certification-card:hover .cert-image {
+            transform: scale(1.05);
+        }
+
+        .cert-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(31, 36, 45, 0.95), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: 0.5s ease;
+        }
+
+        .certification-card:hover .cert-overlay {
+            transform: translateY(0);
+        }
+
+        .cert-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .cert-overlay .cert-issuer {
+            font-size: 1.4rem;
+            color: var(--main-color);
+            font-weight: 600;
+        }
+
+        .cert-overlay .cert-date {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-top: 0.5rem;
+        }
+
+        .cert-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(14, 239, 255, 0.9);
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            z-index: 2;
+        }
+
+        .cert-badge i {
+            font-size: 1.6rem;
+            color: var(--bg-color);
+        }
+
+        .cert-badge span {
+            font-size: 1.2rem;
+            color: var(--bg-color);
+            font-weight: 600;
+        }
+
+        /* Certification Animation on Scroll */
+        .certification-card {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .certification-card.animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* BREAKPOINTS */
         @media (max-width: 1200px) {
             html {
@@ -702,6 +880,14 @@
             .overlay {
                 display: none;
             }
+
+            .certifications-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .certifications {
+                padding: 7rem 3% 3rem;
+            }
         }
 
         @media (max-width: 617px) {
@@ -755,47 +941,6 @@
             --main-color: #38bdf8;
             --primary-color: #818cf8;
         }
-
-        /* CRM Specific Styles */
-        .crm-icon {
-            font-size: 3rem;
-            margin-right: 1rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .skill-tag {
-            background: rgba(108, 99, 255, 0.1);
-            padding: 0.8rem 1.5rem;
-            border-radius: 2rem;
-            font-size: 1.4rem;
-            border: 1px solid var(--main-color);
-        }
-
-        .experience-item {
-            background: var(--second-bg-color);
-            padding: 2rem;
-            border-radius: 1rem;
-            margin: 2rem 0;
-            border-left: 4px solid var(--main-color);
-        }
-
-        .experience-item h4 {
-            font-size: 2rem;
-            color: var(--main-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-item .duration {
-            color: #94a3b8;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
     </style>
 </head>
 
@@ -811,6 +956,7 @@
             <a href="#skills">Skills</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#experience">Experience</a>
+            <a href="#certifications">Certifications</a>
             <a href="#contact">Contact</a>
         </nav>
 
@@ -838,7 +984,6 @@
                 <a href="https://www.linkedin.com/in/arbaz-khan-0350a9345/" target="_blank"><i class='bx bxl-linkedin'></i></a>
                 <a href="https://github.com/ArbazKhan982" target="_blank"><i class='bx bxl-github'></i></a>
                 <a href="mailto:arbaz03029049717@gmail.com"><i class='bx bx-envelope'></i></a>
-               
             </div>
 
             <a href="#contact" class="btn">Contact Me</a>
@@ -854,10 +999,6 @@
                     <i class='bx bx-cog'></i>
                     <h3>Power Platform</h3>
                 </div>
-                <!-- <div class="profession" style="--i:2;">
-                    <i class='bx bx-code-alt'></i>
-                    <h3>CRM Development</h3>
-                </div> -->
                 <div class="profession" style="--i:3;">
                     <i class='bx bx-globe'></i>
                     <h3>Power Pages</h3>
@@ -1019,36 +1160,51 @@
         </div>
     </section>
 
-    <!-- testimonial design -->
-    <!-- <div class="testimonial-container">
-        <h2 class="heading">Professional <span>Expertise</span></h2>
-
-        <div class="testimonial-wrapper">
-            <div class="testimonial-box mySwiper">
-                <div class="testimonial-content swiper-wrapper">
-                    <div class="testimonial-slide swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client">
-                        <h3>Business Process Optimization</h3>
-                        <p>"Specializing in streamlining business processes through customized Dynamics 365 solutions that improve efficiency by 40-60% and reduce manual data entry through automation."</p>
-                    </div>
-                    <div class="testimonial-slide swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client">
-                        <h3>System Integration</h3>
-                        <p>"Expert in integrating Dynamics 365 with external systems including SharePoint, legacy databases, and third-party applications to create seamless workflows and data synchronization."</p>
-                    </div>
-                    <div class="testimonial-slide swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Client">
-                        <h3>User Experience Enhancement</h3>
-                        <p>"Focus on creating intuitive user interfaces and experiences that increase user adoption and satisfaction by 35% through thoughtful design and customization."</p>
-                    </div>
+    <!-- certifications section -->
+    <section class="certifications" id="certifications">
+        <h2 class="heading">My <span>Certifications</span></h2>
+        
+        <div class="certifications-container">
+            <div class="certification-card">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Power Platform Fundamentals Certificate" class="cert-image">
+                <div class="cert-badge">
+                    <i class='bx bx-badge-check'></i>
+                    <span>Verified</span>
                 </div>
+                <div class="cert-overlay">
+                    <h3>Power Pages Specialist</h3>
+                    <p class="cert-issuer">Power Pages</p>
+                    <p class="cert-date">2026</p>
+                </div>
+            </div>
 
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+            <div class="certification-card">
+                <img src="Images/Copilot Studio Certificate.png">
+                <div class="cert-badge">
+                    <i class='bx bx-badge-check'></i>
+                    <span>Verified</span>
+                </div>
+                <div class="cert-overlay">
+                    <h3>Microsoft Copilot AI Agent</h3>
+                    <p class="cert-issuer">Copilot Studio</p>
+                    <p class="cert-date">2026</p>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Power Pages Specialist Certificate" class="cert-image">
+                <div class="cert-badge">
+                    <i class='bx bx-badge-check'></i>
+                    <span>Verified</span>
+                </div>
+                <div class="cert-overlay">
+                    <h3>Microsoft Power Automate</h3>
+                    <p class="cert-issuer">Power Automate</p>
+                    <p class="cert-date">2026</p>
+                </div>
             </div>
         </div>
-    </div> -->
+    </section>
 
     <!-- contact section design -->
     <section class="contact" id="contact">
@@ -1078,7 +1234,6 @@
             <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
     </footer>
-
 
     <!-- scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -1145,22 +1300,6 @@
             loop: true
         });
 
-        // Swiper testimonial
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 50,
-            loop: true,
-            grabCursor: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-
         // Scroll Reveal Animation
         ScrollReveal({
             reset: false,
@@ -1170,9 +1309,32 @@
         });
 
         ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-        ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
+        ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
         ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
         ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+
+        // Certification cards animation on scroll
+        const certCards = document.querySelectorAll('.certification-card');
+        
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate');
+                    }, index * 150);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        certCards.forEach(card => {
+            observer.observe(card);
+        });
 
         // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -1183,11 +1345,8 @@
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Here you would typically send the form data to a server
-            // For now, we'll just show an alert
             alert(`Thank you ${name}! Your message has been sent. I'll get back to you soon at ${email}.`);
             
-            // Reset form
             this.reset();
         });
     </script>
